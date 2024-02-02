@@ -1,0 +1,16 @@
+{
+	"id": "GlobalCountry",
+	"order": 1,
+	"objects": [
+		{
+			"id": "Country_India",
+			"type": "com.brijframework.app.entities.EOGlobalCountry",
+			"name": "GlobalCountry",
+			"properties": {
+				"idenNo":"INDIA",
+				"name": "India",
+				"currency":"LK@Global_Currency_Item_INR"
+			}
+		}
+	]
+}
