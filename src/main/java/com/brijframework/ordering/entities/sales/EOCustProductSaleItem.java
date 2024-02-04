@@ -29,16 +29,10 @@ public class EOCustProductSaleItem extends EOCustItem {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 
-	// for purchase cost
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = PURCHASE_PRICE)
-	private EOCustProductSaleItemPrice purchasePrice;
-
-	// for sale cost
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = SALE_PRICE)
-	private EOCustProductSaleItemPrice salePrice;
+	@Column(name = CUST_PRODUCT_ID)
+	private Long custProductId;
 
 	@Column(name = SALE_QTN)
 	private Long saleQnt;
@@ -49,8 +43,15 @@ public class EOCustProductSaleItem extends EOCustItem {
 	@Column(name = SALE_TYPE)
 	private String saleType;
 
-	@Column(name = CUST_PRODUCT_ID)
-	private Long custProductId;
+	// for purchase cost
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = PURCHASE_PRICE)
+	private EOCustProductSaleItemPrice purchasePrice;
+
+	// for sale cost
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = SALE_PRICE)
+	private EOCustProductSaleItemPrice salePrice;
 
 	@JoinColumn(name = CUST_PRODUCT_SALE_ID)
 	@OneToOne

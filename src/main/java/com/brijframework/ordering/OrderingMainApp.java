@@ -15,8 +15,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableDiscoveryClient
 @EnableZuulProxy
 @SpringBootApplication
-public class PaymentMainApp {
+public class OrderingMainApp {
     public static void main(String[] args) {
-        SpringApplication.run(PaymentMainApp.class, args);
+        SpringApplication.run(OrderingMainApp.class, args);
     }
 }

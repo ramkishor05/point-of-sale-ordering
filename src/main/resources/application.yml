@@ -39,13 +39,13 @@ spring:
    profiles:  
      active: local
    application:
-     name: point_of_sale_app
+     name: point_of_sale_ordering
    main:
      allow-bean-definition-overriding: true
    sql.init.mode: always
    datasource:
      driverClassName: com.mysql.cj.jdbc.Driver
-     url: jdbc:mysql://localhost:3306/point_of_sale_app
+     url: jdbc:mysql://localhost:3306/point_of_sale_ordering
      username: root
      password: root
      show-sql: true
@@ -65,7 +65,7 @@ eureka:
         defaultZone: http://localhost:1111/eureka/
 # HTTP Server (Tomcat) Port
 server: 
-  port: 5555
+  port: 6666
 logging.level.org.hibernate.SQL: DEBUG
 logging.level.org.hibernate.type.descriptor.sql.BasicBinder: TRACE
 # Disable Spring Boot's "Whitelabel" default error page, so we can use our own

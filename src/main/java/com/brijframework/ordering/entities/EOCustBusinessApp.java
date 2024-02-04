@@ -23,6 +23,17 @@ public class EOCustBusinessApp extends EOCustObject {
 
 	@Column(name = BUSINESS_ID, nullable = false)
 	private long businessId;
+	
+	public EOCustBusinessApp() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public EOCustBusinessApp(long appId, long custId, long businessId) {
+		super();
+		this.appId = appId;
+		this.custId = custId;
+		this.businessId = businessId;
+	}
 
 	public long getAppId() {
 		return appId;

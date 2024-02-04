@@ -10,6 +10,8 @@ public class Constants {
 	public static final String CUST_BUSINESS_APP_ID_ENTITY = "custBusinessApp.id";
 	public static final String CUST_BUSINESS_APP_ID_UI = "custBusinessAppId";
 	
+	public static final String OWNER_ID_KEY = "ownerId";
+	public static final String APP_ID_KEY = "appId";
 	public static final String BUSINESS_ID_KEY = "businessId";
 	public static final String CUST_BUSINESS_ID_ENTITY = "custBusinessApp.businessId";
 	

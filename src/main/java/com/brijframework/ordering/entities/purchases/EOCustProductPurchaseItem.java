@@ -27,21 +27,20 @@ public class EOCustProductPurchaseItem extends EOCustItem{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	// for purchase cost
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = PURCHASE_PRICE)
-	private EOCustProductPurchaseItemPrice purchasePrice;
-	
+	@Column(name = CUST_PRODUCT_ID)
+	private Long custProductId;
+
 	@Column(name = DISCOUNT)
 	private Double discount;
 
 	@Column(name = PURCHASE_QNT)
 	private Double purchaseQnt;
 
-	@JoinColumn(name = CUST_PRODUCT_ID)
-	@ManyToOne
-	private Long custProductId;
-
+	// for purchase cost
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = PURCHASE_PRICE)
+	private EOCustProductPurchaseItemPrice purchasePrice;
+	
 	@JoinColumn(name = CUST_PRODUCT_PURCHASE_ID)
 	@ManyToOne
 	private EOCustProductPurchase custProductPurchase;
