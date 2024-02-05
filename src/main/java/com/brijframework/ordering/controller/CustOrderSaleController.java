@@ -25,8 +25,8 @@ import com.brijframework.ordering.service.CustProductSaleService;
 
 
 @RestController
-@RequestMapping("/api/cust/sales")
-public class CustSaleController {
+@RequestMapping("/api/cust/order/sales")
+public class CustOrderSaleController {
 
 	@Autowired
 	private CustProductSaleService custProductSaleService;

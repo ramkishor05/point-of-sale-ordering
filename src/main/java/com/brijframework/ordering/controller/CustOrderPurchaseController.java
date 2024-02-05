@@ -24,8 +24,8 @@ import com.brijframework.ordering.rest.purchase.CustProductPurchaseResponse;
 import com.brijframework.ordering.service.CustProductPurchaseService;
 
 @RestController
-@RequestMapping("/api/cust/purchases")
-public class CustPurchaseController {
+@RequestMapping("/api/cust/order/purchases")
+public class CustOrderPurchaseController {
 
 	
 	@Autowired
