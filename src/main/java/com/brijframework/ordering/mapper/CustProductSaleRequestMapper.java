@@ -5,7 +5,6 @@ import static com.brijframework.ordering.contants.Constants.CUST_BUSINESS_APP_ID
 import static com.brijframework.ordering.contants.Constants.CUST_BUSINESS_APP_ID_UI;
 import static com.brijframework.ordering.contants.Constants.SPRING;
 
-import java.util.Date;
 import java.util.List;
 
 import org.mapstruct.Mapper;
@@ -19,7 +18,6 @@ import com.brijframework.ordering.rest.sale.CustProductSaleAdditional;
 import com.brijframework.ordering.rest.sale.CustProductSaleItemRequest;
 import com.brijframework.ordering.rest.sale.CustProductSalePayment;
 import com.brijframework.ordering.rest.sale.CustProductSaleRequest;
-import com.brijframework.ordering.util.CommanUtil;
 
 @Mapper(componentModel = SPRING, implementationPackage = COM_BRIJFRAMEWORK_ORDERING_MAPPER_IMPL)
 public interface CustProductSaleRequestMapper extends GenericMapper<EOCustProductSale, CustProductSaleRequest> {
