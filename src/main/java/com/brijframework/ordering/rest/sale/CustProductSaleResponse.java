@@ -38,8 +38,6 @@ public class CustProductSaleResponse implements Serializable {
 
 	private List<CustProductSaleAdditional> custProductSaleAdditionalList;
 
-	private List<CustProductSalePayment> custProductSalePaymentList;
-
 	public Long getId() {
 		return id;
 	}
@@ -134,14 +132,6 @@ public class CustProductSaleResponse implements Serializable {
 
 	public void setCustProductSaleAdditionalList(List<CustProductSaleAdditional> custProductSaleAdditionalList) {
 		this.custProductSaleAdditionalList = custProductSaleAdditionalList;
-	}
-
-	public List<CustProductSalePayment> getCustProductSalePaymentList() {
-		return custProductSalePaymentList;
-	}
-
-	public void setCustProductSalePaymentList(List<CustProductSalePayment> custProductSalePaymentList) {
-		this.custProductSalePaymentList = custProductSalePaymentList;
 	}
 
 }

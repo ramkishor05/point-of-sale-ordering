@@ -11,17 +11,14 @@ import com.brijframework.ordering.entities.EOCustBusinessApp;
 import com.brijframework.ordering.entities.sales.EOCustProductSale;
 import com.brijframework.ordering.entities.sales.EOCustProductSaleAdditional;
 import com.brijframework.ordering.entities.sales.EOCustProductSaleItem;
-import com.brijframework.ordering.entities.sales.EOCustProductSalePayment;
 import com.brijframework.ordering.mapper.CustProductSaleRequestMapper;
 import com.brijframework.ordering.mapper.CustProductSaleResponseMapper;
 import com.brijframework.ordering.repository.CustBusinessAppRepository;
 import com.brijframework.ordering.repository.CustProductSaleAdditionalRepository;
 import com.brijframework.ordering.repository.CustProductSaleItemRepository;
-import com.brijframework.ordering.repository.CustProductSalePaymentRepository;
 import com.brijframework.ordering.repository.CustProductSaleRepository;
 import com.brijframework.ordering.rest.sale.CustProductSaleAdditional;
 import com.brijframework.ordering.rest.sale.CustProductSaleItemRequest;
-import com.brijframework.ordering.rest.sale.CustProductSalePayment;
 import com.brijframework.ordering.rest.sale.CustProductSaleRequest;
 import com.brijframework.ordering.rest.sale.CustProductSaleResponse;
 import com.brijframework.ordering.service.CustProductSaleService;
@@ -49,9 +46,6 @@ public class CustProductSaleServiceImpl implements CustProductSaleService {
 	private CustProductSaleResponseMapper custProductSaleResponseMapper; 
 	
 	@Autowired
-	private CustProductSalePaymentRepository custProductSalePaymentRepository;
-	
-	@Autowired
 	private CustProductSaleAdditionalRepository custProductSaleAdditionalRepository;
 	
 	@Override
@@ -69,10 +63,8 @@ public class CustProductSaleServiceImpl implements CustProductSaleService {
 			EOCustBusinessApp eoCustBusinessApp) {
 		List<CustProductSaleItemRequest> custProductSaleItemList = custProductSaleRequest.getCustProductSaleItemList();
 		List<CustProductSaleAdditional> custProductAdditionalList = custProductSaleRequest.getCustProductSaleAdditionalList();
-		List<CustProductSalePayment> custProductPaymentList = custProductSaleRequest.getCustProductSalePaymentList();
 		custProductSaleRequest.setCustProductSaleItemList(null);
 		custProductSaleRequest.setCustProductSaleAdditionalList(null);
-		custProductSaleRequest.setCustProductSalePaymentList(null);
 		
 		EOCustProductSale eoCustProductSale = custProductSaleRequestMapper.mapToDAO(custProductSaleRequest);
 		eoCustProductSale.setUserId(custProductSaleRequest.getUserId());
@@ -86,12 +78,6 @@ public class CustProductSaleServiceImpl implements CustProductSaleService {
 		for(EOCustProductSaleAdditional custProductAdditional: custProductSaleRequestMapper.custProductSaleAdditionalListDAO(custProductAdditionalList)){
 			custProductAdditional.setCustProductSale(eoCustProductSale);
 			custProductSaleAdditionalRepository.saveAndFlush(custProductAdditional);
-		};
-		
-		for(EOCustProductSalePayment custProductSalePayment: custProductSaleRequestMapper.custProductSalePaymentListDAO(custProductPaymentList)){
-			custProductSalePayment.setCustProductSale(eoCustProductSale);
-			custProductSalePayment.setCustomerId(eoCustProductSale.getCustomerId());
-			custProductSalePaymentRepository.saveAndFlush(custProductSalePayment);
 		};
 		
 		for(CustProductSaleItemRequest custProductRetailSaleUi : custProductSaleItemList){

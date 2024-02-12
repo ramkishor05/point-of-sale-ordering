@@ -27,8 +27,6 @@ public class CustProductPurchaseResponse {
 
 	private List<CustProductPurchaseAdditional> custProductPurchaseAdditionalList;
 
-	private List<CustProductPurchasePayment> custProductPurchasePaymentList;
-
 	public Long getId() {
 		return id;
 	}
@@ -124,14 +122,6 @@ public class CustProductPurchaseResponse {
 	public void setCustProductPurchaseAdditionalList(
 			List<CustProductPurchaseAdditional> custProductPurchaseAdditionalList) {
 		this.custProductPurchaseAdditionalList = custProductPurchaseAdditionalList;
-	}
-
-	public List<CustProductPurchasePayment> getCustProductPurchasePaymentList() {
-		return custProductPurchasePaymentList;
-	}
-
-	public void setCustProductPurchasePaymentList(List<CustProductPurchasePayment> custProductPurchasePaymentList) {
-		this.custProductPurchasePaymentList = custProductPurchasePaymentList;
 	}
 
 }

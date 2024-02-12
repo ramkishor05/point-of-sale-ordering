@@ -62,9 +62,6 @@ public class EOCustProductSale extends EOCustItem {
 	@OneToMany(mappedBy = CUST_PRODUCT_SALE, cascade = CascadeType.ALL)
 	private List<EOCustProductSaleAdditional> custProductSaleAdditionalList;
 	
-	@OneToMany(mappedBy = CUST_PRODUCT_SALE, cascade = CascadeType.ALL)
-	private List<EOCustProductSalePayment> custProductSalePaymentList;
-
 	private long userId;
 
 	public Double getDiscounts() {
@@ -137,14 +134,6 @@ public class EOCustProductSale extends EOCustItem {
 
 	public void setCustProductSaleAdditionalList(List<EOCustProductSaleAdditional> custProductSaleAdditionalList) {
 		this.custProductSaleAdditionalList = custProductSaleAdditionalList;
-	}
-
-	public List<EOCustProductSalePayment> getCustProductSalePaymentList() {
-		return custProductSalePaymentList;
-	}
-
-	public void setCustProductSalePaymentList(List<EOCustProductSalePayment> custProductSalePaymentList) {
-		this.custProductSalePaymentList = custProductSalePaymentList;
 	}
 
 }

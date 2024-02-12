@@ -13,10 +13,8 @@ import org.mapstruct.Mapping;
 import com.brijframework.ordering.entities.purchases.EOCustProductPurchase;
 import com.brijframework.ordering.entities.purchases.EOCustProductPurchaseAdditional;
 import com.brijframework.ordering.entities.purchases.EOCustProductPurchaseItem;
-import com.brijframework.ordering.entities.purchases.EOCustProductPurchasePayment;
 import com.brijframework.ordering.rest.purchase.CustProductPurchaseAdditional;
 import com.brijframework.ordering.rest.purchase.CustProductPurchaseItemRequest;
-import com.brijframework.ordering.rest.purchase.CustProductPurchasePayment;
 import com.brijframework.ordering.rest.purchase.CustProductPurchaseRequest;
 
 @Mapper(componentModel = SPRING, implementationPackage = COM_BRIJFRAMEWORK_ORDERING_MAPPER_IMPL)
@@ -37,7 +35,4 @@ public interface CustProductPurchaseRequestMapper extends GenericMapper<EOCustPr
 	List<CustProductPurchaseAdditional> custProductPurchaseAdditionalListDTO(List<EOCustProductPurchaseAdditional> custProductPurchaseAdditionals);
 	
 	List<EOCustProductPurchaseAdditional> custProductPurchaseAdditionalListDAO(List<CustProductPurchaseAdditional> custProductPurchaseAdditionals);
-
-	List<EOCustProductPurchasePayment> custProductPurchasePaymentListDAO(List<CustProductPurchasePayment> custProductPaymentList);
-
 }

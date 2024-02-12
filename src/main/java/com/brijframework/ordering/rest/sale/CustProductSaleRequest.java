@@ -27,8 +27,6 @@ public class CustProductSaleRequest {
 	private List<CustProductSaleItemRequest> custProductSaleItemList;
 	
 	private List<CustProductSaleAdditional> custProductSaleAdditionalList;
-	
-	private List<CustProductSalePayment> custProductSalePaymentList;
 
 	private long userId;
 
@@ -120,11 +118,4 @@ public class CustProductSaleRequest {
 		this.custProductSaleAdditionalList = custProductSaleAdditionalList;
 	}
 
-	public List<CustProductSalePayment> getCustProductSalePaymentList() {
-		return custProductSalePaymentList;
-	}
-
-	public void setCustProductSalePaymentList(List<CustProductSalePayment> custProductSalePaymentList) {
-		this.custProductSalePaymentList = custProductSalePaymentList;
-	}
 }

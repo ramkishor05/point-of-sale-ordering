@@ -13,17 +13,14 @@ import com.brijframework.ordering.entities.purchases.EOCustProductPurchase;
 import com.brijframework.ordering.entities.purchases.EOCustProductPurchaseAdditional;
 import com.brijframework.ordering.entities.purchases.EOCustProductPurchaseItem;
 import com.brijframework.ordering.entities.purchases.EOCustProductPurchaseItemPrice;
-import com.brijframework.ordering.entities.purchases.EOCustProductPurchasePayment;
 import com.brijframework.ordering.mapper.CustProductPurchaseRequestMapper;
 import com.brijframework.ordering.mapper.CustProductPurchaseResponseMapper;
 import com.brijframework.ordering.repository.CustBusinessAppRepository;
 import com.brijframework.ordering.repository.CustProductPurchaseAdditionalRepository;
 import com.brijframework.ordering.repository.CustProductPurchaseItemRepository;
-import com.brijframework.ordering.repository.CustProductPurchasePaymentRepository;
 import com.brijframework.ordering.repository.CustProductPurchaseRepository;
 import com.brijframework.ordering.rest.purchase.CustProductPurchaseAdditional;
 import com.brijframework.ordering.rest.purchase.CustProductPurchaseItemRequest;
-import com.brijframework.ordering.rest.purchase.CustProductPurchasePayment;
 import com.brijframework.ordering.rest.purchase.CustProductPurchaseRequest;
 import com.brijframework.ordering.rest.purchase.CustProductPurchaseResponse;
 import com.brijframework.ordering.service.CustProductPurchaseService;
@@ -50,9 +47,6 @@ public class CustProductPurchaseServiceImpl implements CustProductPurchaseServic
 	private CustProductPurchaseResponseMapper custProductPurchaseResponseMapper; 
 	
 	@Autowired
-	private CustProductPurchasePaymentRepository custProductPurchasePaymentRepository;
-	
-	@Autowired
 	private CustProductPurchaseAdditionalRepository custProductPurchaseAdditionalRepository;
 	
 	@Override
@@ -70,10 +64,8 @@ public class CustProductPurchaseServiceImpl implements CustProductPurchaseServic
 			EOCustBusinessApp eoCustBusinessApp) {
 		List<CustProductPurchaseItemRequest> custProductPurchaseItemList = custProductPurchaseRequest.getCustProductPurchaseItemList();
 		List<CustProductPurchaseAdditional> custProductAdditionalList = custProductPurchaseRequest.getCustProductPurchaseAdditionalList();
-		List<CustProductPurchasePayment> custProductPaymentList = custProductPurchaseRequest.getCustProductPurchasePaymentList();
 		custProductPurchaseRequest.setCustProductPurchaseItemList(null);
 		custProductPurchaseRequest.setCustProductPurchaseAdditionalList(null);
-		custProductPurchaseRequest.setCustProductPurchasePaymentList(null);
 		
 		EOCustProductPurchase eoCustProductPurchase = custProductPurchaseRequestMapper.mapToDAO(custProductPurchaseRequest);
 		eoCustProductPurchase.setUserId(custProductPurchaseRequest.getUserId());
@@ -88,12 +80,6 @@ public class CustProductPurchaseServiceImpl implements CustProductPurchaseServic
 		for(EOCustProductPurchaseAdditional custProductAdditional: custProductPurchaseRequestMapper.custProductPurchaseAdditionalListDAO(custProductAdditionalList)){
 			custProductAdditional.setCustProductPurchase(eoCustProductPurchase);
 			custProductPurchaseAdditionalRepository.saveAndFlush(custProductAdditional);
-		};
-
-		for(EOCustProductPurchasePayment custProductPurchasePayment: custProductPurchaseRequestMapper.custProductPurchasePaymentListDAO(custProductPaymentList)){
-			custProductPurchasePayment.setCustProductPurchase(eoCustProductPurchase);
-			custProductPurchasePayment.setSupplierId(eoCustProductPurchase.getSupplierId());
-			custProductPurchasePaymentRepository.saveAndFlush(custProductPurchasePayment);
 		};
 		
 		for(CustProductPurchaseItemRequest custProductRetailPurchaseUi : custProductPurchaseItemList){
