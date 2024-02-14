@@ -1,4 +1,4 @@
-package com.brijframework.ordering.mapper;
+package com.brijframework.ordering.mapper.orders;
 
 import static com.brijframework.ordering.contants.Constants.BUSINESS_ID_KEY;
 import static com.brijframework.ordering.contants.Constants.COM_BRIJFRAMEWORK_ORDERING_MAPPER_IMPL;
@@ -12,6 +12,7 @@ import org.mapstruct.Mapping;
 
 import com.brijframework.ordering.entities.sales.EOCustProductSale;
 import com.brijframework.ordering.entities.sales.EOCustProductSaleItem;
+import com.brijframework.ordering.mapper.GenericMapper;
 import com.brijframework.ordering.rest.sale.CustProductSaleItemResponse;
 import com.brijframework.ordering.rest.sale.CustProductSaleResponse;
 

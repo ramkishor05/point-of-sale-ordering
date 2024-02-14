@@ -1,7 +1,7 @@
 package com.brijframework.ordering.entities.cart;
 
 import static com.brijframework.ordering.contants.TableConstants.CUST_BUSINESS_APP_ID;
-import static com.brijframework.ordering.contants.EntityConstants.CUST_PRODUCT_PURCHASE;
+import static com.brijframework.ordering.contants.EntityConstants.CUST_CART_PURCHASE;
 import static com.brijframework.ordering.contants.TableConstants.DISCOUNTS;
 import static com.brijframework.ordering.contants.TableConstants.EOCUST_CART_PURCHASE;
 import static com.brijframework.ordering.contants.TableConstants.PURCHASE_DATE;
@@ -63,15 +63,12 @@ public class EOCustCartPurchase extends EOCustItem {
 	@ManyToOne
 	private EOCustBusinessApp custBusinessApp;
 
-	@OneToMany(mappedBy = CUST_PRODUCT_PURCHASE, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = CUST_CART_PURCHASE, cascade = CascadeType.ALL)
 	private List<EOCustCartPurchaseItem> custProductPurchaseItemList;
 
-	@OneToMany(mappedBy = CUST_PRODUCT_PURCHASE, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = CUST_CART_PURCHASE, cascade = CascadeType.ALL)
 	private List<EOCustCartPurchaseAdditional> custProductPurchaseAdditionalList;
 	
-	@OneToMany(mappedBy = CUST_PRODUCT_PURCHASE, cascade = CascadeType.ALL)
-	private List<EOCustCartPurchasePayment> custProductPurchasePaymentList;
-
 	public Double getDiscounts() {
 		return discounts;
 	}
@@ -145,12 +142,4 @@ public class EOCustCartPurchase extends EOCustItem {
 		this.custProductPurchaseAdditionalList = custProductPurchaseAdditionalList;
 	}
 
-	public List<EOCustCartPurchasePayment> getCustProductPurchasePaymentList() {
-		return custProductPurchasePaymentList;
-	}
-
-	public void setCustProductPurchasePaymentList(List<EOCustCartPurchasePayment> custProductPurchasePaymentList) {
-		this.custProductPurchasePaymentList = custProductPurchasePaymentList;
-	}
-	
 }

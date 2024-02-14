@@ -1,7 +1,7 @@
 package com.brijframework.ordering.entities.cart;
 
+import static com.brijframework.ordering.contants.TableConstants.CUST_CART_PURCHASE_ID;
 import static com.brijframework.ordering.contants.TableConstants.CUST_PRODUCT_ID;
-import static com.brijframework.ordering.contants.TableConstants.CUST_PRODUCT_PURCHASE_ID;
 import static com.brijframework.ordering.contants.TableConstants.DISCOUNT;
 import static com.brijframework.ordering.contants.TableConstants.EOCUST_CART_PURCHASE_ITEM;
 import static com.brijframework.ordering.contants.TableConstants.PURCHASE_PRICE;
@@ -43,9 +43,9 @@ public class EOCustCartPurchaseItem extends EOCustItem{
 	@JoinColumn(name = PURCHASE_PRICE)
 	private EOCustCartPurchaseItemPrice purchasePrice;
 	
-	@JoinColumn(name = CUST_PRODUCT_PURCHASE_ID)
+	@JoinColumn(name = CUST_CART_PURCHASE_ID)
 	@ManyToOne
-	private EOCustCartPurchase custProductPurchase;
+	private EOCustCartPurchase custCartPurchase;
 	
 	public EOCustCartPurchaseItemPrice getPurchasePrice() {
 		return purchasePrice;
@@ -79,11 +79,11 @@ public class EOCustCartPurchaseItem extends EOCustItem{
 		this.custProductId = custProductId;
 	}
 
-	public EOCustCartPurchase getCustProductPurchase() {
-		return custProductPurchase;
+	public EOCustCartPurchase getCustCartPurchase() {
+		return custCartPurchase;
 	}
 
-	public void setCustProductPurchase(EOCustCartPurchase custProductPurchase) {
-		this.custProductPurchase = custProductPurchase;
+	public void setCustCartPurchase(EOCustCartPurchase custCartPurchase) {
+		this.custCartPurchase = custCartPurchase;
 	}
 }

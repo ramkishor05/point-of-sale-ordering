@@ -1,7 +1,7 @@
 package com.brijframework.ordering.entities.cart;
 
-import static com.brijframework.ordering.contants.TableConstants.CUST_CART_PURCHASE_ID;
-import static com.brijframework.ordering.contants.TableConstants.EOCUST_CART_PURCHASE_ADDITIONAL;
+import static com.brijframework.ordering.contants.TableConstants.CUST_CART_SALE_ID;
+import static com.brijframework.ordering.contants.TableConstants.EOCUST_CART_SALE_ADDITIONAL;
 import static com.brijframework.ordering.contants.TableConstants.FIELD;
 import static com.brijframework.ordering.contants.TableConstants.TYPE;
 import static com.brijframework.ordering.contants.TableConstants.VALUE;
@@ -18,8 +18,8 @@ import com.brijframework.ordering.entities.EOCustObject;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = EOCUST_CART_PURCHASE_ADDITIONAL)
-public class EOCustCartPurchaseAdditional extends EOCustObject {
+@Table(name = EOCUST_CART_SALE_ADDITIONAL)
+public class EOCustCartSaleAdditional extends EOCustObject {
 
 	/**
 	 * 
@@ -36,9 +36,9 @@ public class EOCustCartPurchaseAdditional extends EOCustObject {
 	@Column(name = TYPE)
 	private String type;
 
-	@JoinColumn(name = CUST_CART_PURCHASE_ID)
+	@JoinColumn(name = CUST_CART_SALE_ID)
 	@ManyToOne
-	private EOCustCartPurchase custCartPurchase;
+	private EOCustCartSale custCartSale;
 
 	public String getField() {
 		return field;
@@ -64,11 +64,11 @@ public class EOCustCartPurchaseAdditional extends EOCustObject {
 		this.type = type;
 	}
 
-	public EOCustCartPurchase getCustCartPurchase() {
-		return custCartPurchase;
+	public EOCustCartSale getCustCartSale() {
+		return custCartSale;
 	}
 
-	public void setCustCartPurchase(EOCustCartPurchase custCartPurchase) {
-		this.custCartPurchase = custCartPurchase;
+	public void setCustCartSale(EOCustCartSale custCartSale) {
+		this.custCartSale = custCartSale;
 	}
 }

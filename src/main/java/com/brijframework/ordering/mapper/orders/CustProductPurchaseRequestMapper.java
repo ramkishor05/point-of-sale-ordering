@@ -1,4 +1,4 @@
-package com.brijframework.ordering.mapper;
+package com.brijframework.ordering.mapper.orders;
 
 import static com.brijframework.ordering.contants.Constants.COM_BRIJFRAMEWORK_ORDERING_MAPPER_IMPL;
 import static com.brijframework.ordering.contants.Constants.CUST_BUSINESS_APP_ID_ENTITY;
@@ -13,6 +13,7 @@ import org.mapstruct.Mapping;
 import com.brijframework.ordering.entities.purchases.EOCustProductPurchase;
 import com.brijframework.ordering.entities.purchases.EOCustProductPurchaseAdditional;
 import com.brijframework.ordering.entities.purchases.EOCustProductPurchaseItem;
+import com.brijframework.ordering.mapper.GenericMapper;
 import com.brijframework.ordering.rest.purchase.CustProductPurchaseAdditional;
 import com.brijframework.ordering.rest.purchase.CustProductPurchaseItemRequest;
 import com.brijframework.ordering.rest.purchase.CustProductPurchaseRequest;
