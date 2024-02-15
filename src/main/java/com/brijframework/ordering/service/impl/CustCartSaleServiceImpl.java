@@ -109,7 +109,9 @@ public class CustCartSaleServiceImpl implements CustCartSaleService {
 	public CustCartSaleResponse currentCartSale(long custAppId, long userId) {
 		List<EOCustCartSale> eoCustCartSales = custCartSaleRepository.findByCustBusinessAppIdAndUserId(custAppId, userId);
 		if(eoCustCartSales.isEmpty()) {
-			return null;
+			CustCartSaleRequest custCartSaleRequest = new CustCartSaleRequest();
+			custCartSaleRequest.setUserId(userId);
+			return saveCartSale(custAppId, custCartSaleRequest);
 		}
 		return custCartSaleResponseMapper.mapToDTO(eoCustCartSales.get(0));
 	}

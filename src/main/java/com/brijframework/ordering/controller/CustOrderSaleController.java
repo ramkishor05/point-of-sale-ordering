@@ -36,6 +36,7 @@ public class CustOrderSaleController {
 		custProductSaleRequest.setUserId(userId);
 		return custProductSaleService.saveProductSale(custAppId,custProductSaleRequest);
 	}
+	
 	@PutMapping
 	public CustProductSaleResponse updateProductSale(@RequestHeader(CUST_APP_ID) long custAppId,@RequestHeader(USER_APP_ID) long userId,@RequestBody CustProductSaleRequest custProductSaleRequest) {
 		custProductSaleRequest.setUserId(userId);

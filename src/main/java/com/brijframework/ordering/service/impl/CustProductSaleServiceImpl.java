@@ -3,6 +3,7 @@ package com.brijframework.ordering.service.impl;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -82,11 +83,10 @@ public class CustProductSaleServiceImpl implements CustProductSaleService {
 		
 		for(CustProductSaleItemRequest custProductRetailSaleUi : custProductSaleItemList){
 			EOCustProductSaleItem eoCustProductRetailSale = custProductSaleRequestMapper.mapToDAO(custProductRetailSaleUi);
-
 			eoCustProductRetailSale.setCustProductSale(eoCustProductSale);
-			
 			custProductRetailSaleRepository.saveAndFlush(eoCustProductRetailSale);
 		}
+		
 		return eoCustProductSale;
 	}
 

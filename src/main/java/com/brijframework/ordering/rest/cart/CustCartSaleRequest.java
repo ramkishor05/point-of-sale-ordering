@@ -1,5 +1,6 @@
 package com.brijframework.ordering.rest.cart;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CustCartSaleRequest {
@@ -100,6 +101,9 @@ public class CustCartSaleRequest {
 	}
 
 	public List<CustCartSaleItemRequest> getCustCartSaleItemList() {
+		if(custCartSaleItemList==null) {
+			custCartSaleItemList=new ArrayList<CustCartSaleItemRequest>();
+		}
 		return custCartSaleItemList;
 	}
 
@@ -108,6 +112,9 @@ public class CustCartSaleRequest {
 	}
 
 	public List<CustCartSaleAdditional> getCustCartSaleAdditionalList() {
+		if(custCartSaleAdditionalList==null) {
+			custCartSaleAdditionalList=new ArrayList<CustCartSaleAdditional>();
+		}
 		return custCartSaleAdditionalList;
 	}
 

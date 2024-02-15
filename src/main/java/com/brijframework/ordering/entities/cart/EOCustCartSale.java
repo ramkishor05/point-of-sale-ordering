@@ -1,6 +1,6 @@
 package com.brijframework.ordering.entities.cart;
 
-import static com.brijframework.ordering.contants.TableConstants.CUSTOMER_ID;
+import static com.brijframework.ordering.contants.TableConstants.*;
 import static com.brijframework.ordering.contants.TableConstants.CUST_BUSINESS_APP_ID;
 import static com.brijframework.ordering.contants.EntityConstants.CUST_CART_SALE;
 import static com.brijframework.ordering.contants.TableConstants.DISCOUNTS;
@@ -46,8 +46,11 @@ public class EOCustCartSale extends EOCustItem {
 	@Column(name = SALE_DATE)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date saleDate;
+	
+	@Column(name = USER_ID)
+	private Long userId;
 
-	@Column(name = CUSTOMER_ID, nullable = false)
+	@Column(name = CUSTOMER_ID)
 	private Long customerId;
 
 	@JoinColumn(name = CUST_BUSINESS_APP_ID, nullable = false)
@@ -59,8 +62,6 @@ public class EOCustCartSale extends EOCustItem {
 
 	@OneToMany(mappedBy = CUST_CART_SALE, cascade = CascadeType.ALL)
 	private List<EOCustCartSaleAdditional> custCartSaleAdditionalList;
-
-	private long userId;
 
 	public Double getDiscounts() {
 		return discounts;

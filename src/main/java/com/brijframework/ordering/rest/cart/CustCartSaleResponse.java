@@ -1,10 +1,8 @@
 package com.brijframework.ordering.rest.cart;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
-
-import com.brijframework.ordering.rest.sale.CustProductSaleAdditional;
-import com.brijframework.ordering.rest.sale.CustProductSaleItemResponse;
 
 public class CustCartSaleResponse implements Serializable{
 
@@ -33,9 +31,9 @@ public class CustCartSaleResponse implements Serializable{
 	
 	private Long businessId;
 	
-	private List<CustProductSaleItemResponse> custProductSaleItemList;
+	private List<CustCartSaleItemResponse> custCartSaleItemList;
 
-	private List<CustProductSaleAdditional> custProductSaleAdditionalList;
+	private List<CustCartSaleAdditional> custCartSaleAdditionalList;
 
 	public Long getId() {
 		return id;
@@ -117,20 +115,26 @@ public class CustCartSaleResponse implements Serializable{
 		this.custBusinessAppId = custBusinessAppId;
 	}
 
-	public List<CustProductSaleItemResponse> getCustProductSaleItemList() {
-		return custProductSaleItemList;
+	public List<CustCartSaleItemResponse> getCustCartSaleItemList() {
+		if(custCartSaleItemList==null) {
+			custCartSaleItemList=new ArrayList<CustCartSaleItemResponse>();
+		}
+		return custCartSaleItemList;
 	}
 
-	public void setCustProductSaleItemList(List<CustProductSaleItemResponse> custProductSaleItemList) {
-		this.custProductSaleItemList = custProductSaleItemList;
+	public void setCustCartSaleItemList(List<CustCartSaleItemResponse> custCartSaleItemList) {
+		this.custCartSaleItemList = custCartSaleItemList;
 	}
 
-	public List<CustProductSaleAdditional> getCustProductSaleAdditionalList() {
-		return custProductSaleAdditionalList;
+	public List<CustCartSaleAdditional> getCustCartSaleAdditionalList() {
+		if(custCartSaleAdditionalList==null) {
+			custCartSaleAdditionalList=new ArrayList<CustCartSaleAdditional>();
+		}
+		return custCartSaleAdditionalList;
 	}
 
-	public void setCustProductSaleAdditionalList(List<CustProductSaleAdditional> custProductSaleAdditionalList) {
-		this.custProductSaleAdditionalList = custProductSaleAdditionalList;
+	public void setCustCartSaleAdditionalList(List<CustCartSaleAdditional> custCartSaleAdditionalList) {
+		this.custCartSaleAdditionalList = custCartSaleAdditionalList;
 	}
 
 }
