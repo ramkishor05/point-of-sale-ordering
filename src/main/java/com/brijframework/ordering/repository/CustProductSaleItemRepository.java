@@ -9,5 +9,7 @@ import com.brijframework.ordering.entities.sales.EOCustProductSaleItem;
 @Repository
 @Transactional
 public interface CustProductSaleItemRepository extends JpaRepository<EOCustProductSaleItem, Long>{
+
+	void deleteByCustProductSaleId(Long id);
 	
 }

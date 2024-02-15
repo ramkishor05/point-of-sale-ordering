@@ -80,9 +80,10 @@ public class CustProductSaleServiceImpl implements CustProductSaleService {
 			custProductAdditional.setCustProductSale(eoCustProductSale);
 			custProductSaleAdditionalRepository.saveAndFlush(custProductAdditional);
 		};
-		
+		custProductRetailSaleRepository.deleteByCustProductSaleId(eoCustProductSale.getId());
 		for(CustProductSaleItemRequest custProductRetailSaleUi : custProductSaleItemList){
 			EOCustProductSaleItem eoCustProductRetailSale = custProductSaleRequestMapper.mapToDAO(custProductRetailSaleUi);
+			eoCustProductRetailSale.setId(null);
 			eoCustProductRetailSale.setCustProductSale(eoCustProductSale);
 			custProductRetailSaleRepository.saveAndFlush(eoCustProductRetailSale);
 		}
