@@ -50,6 +50,7 @@ public class EOCustCartSale extends EOCustItem {
 	@Column(name = USER_ID)
 	private Long userId;
 
+	
 	@Column(name = CUSTOMER_ID)
 	private Long customerId;
 

@@ -82,6 +82,8 @@ public class CustCartPurchaseServiceImpl implements CustCartPurchaseService {
 			custCartPurchaseAdditionalRepository.saveAndFlush(custCartAdditional);
 		};
 		
+		custCartPurchaseItemRepository.deleteByCustCartPurchaseId(eoCustCartPurchase.getId());
+		
 		for(CustCartPurchaseItemRequest custCartRetailPurchaseUi : custCartPurchaseItemList){
 			EOCustCartPurchaseItem eoCustCartRetailPurchase = custCartPurchaseRequestMapper.mapToDAO(custCartRetailPurchaseUi);
 			eoCustCartRetailPurchase.setCustCartPurchase(eoCustCartPurchase);

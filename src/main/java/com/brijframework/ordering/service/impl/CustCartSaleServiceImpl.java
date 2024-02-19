@@ -34,7 +34,7 @@ public class CustCartSaleServiceImpl implements CustCartSaleService {
 	private CustCartSaleRepository custCartSaleRepository;
 	
 	@Autowired
-	private CustCartSaleItemRepository custProductRetailSaleRepository;
+	private CustCartSaleItemRepository custProductSaleItemRepository;
 	
 	@Autowired
 	private  CustBusinessAppRepository custBusinessAppRepository;
@@ -79,12 +79,13 @@ public class CustCartSaleServiceImpl implements CustCartSaleService {
 			custCartSaleAdditionalRepository.saveAndFlush(custProductAdditional);
 		};
 		
+		custProductSaleItemRepository.deleteByCustCartSaleId(eoCustCartSale.getId());
+		
 		for(CustCartSaleItemRequest custProductRetailSaleUi : custCartSaleItemList){
 			EOCustCartSaleItem eoCustProductRetailSale = custCartSaleRequestMapper.mapToDAO(custProductRetailSaleUi);
-
+			eoCustProductRetailSale.setId(null);
 			eoCustProductRetailSale.setCustCartSale(eoCustCartSale);
-			
-			custProductRetailSaleRepository.saveAndFlush(eoCustProductRetailSale);
+			custProductSaleItemRepository.saveAndFlush(eoCustProductRetailSale);
 		}
 		return eoCustCartSale;
 	}

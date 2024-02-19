@@ -3,10 +3,10 @@ package com.brijframework.ordering.service.impl;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import com.brijframework.ordering.entities.EOCustBusinessApp;
 import com.brijframework.ordering.entities.sales.EOCustProductSale;
@@ -76,7 +76,9 @@ public class CustProductSaleServiceImpl implements CustProductSaleService {
 		eoCustProductSale.setCustBusinessApp(eoCustBusinessApp);
 		eoCustProductSale = custProductSaleRepository.saveAndFlush(eoCustProductSale);
 		
-		for(EOCustProductSaleAdditional custProductAdditional: custProductSaleRequestMapper.custProductSaleAdditionalListDAO(custProductAdditionalList)){
+		List<EOCustProductSaleAdditional> custProductSaleAdditionalListDAO = custProductSaleRequestMapper.custProductSaleAdditionalListDAO(custProductAdditionalList);
+		if(!CollectionUtils.isEmpty(custProductSaleAdditionalListDAO))
+		for(EOCustProductSaleAdditional custProductAdditional:custProductSaleAdditionalListDAO ){
 			custProductAdditional.setCustProductSale(eoCustProductSale);
 			custProductSaleAdditionalRepository.saveAndFlush(custProductAdditional);
 		};

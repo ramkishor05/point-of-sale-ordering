@@ -10,5 +10,7 @@ import com.brijframework.ordering.entities.cart.EOCustCartPurchaseItem;
 @Transactional
 public interface CustCartPurchaseItemRepository extends JpaRepository<EOCustCartPurchaseItem, Long> {
 
+	void deleteByCustCartPurchaseId(Long id);
+
 }
 

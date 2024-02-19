@@ -53,7 +53,7 @@ public class EOCustCartPurchase extends EOCustItem {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date  purchaseDate;
 	
-	@Column(name = SUPPLIER_ID, nullable = false)
+	@Column(name = SUPPLIER_ID)
 	private Long supplierId;
 	
 	@Column(name = USER_ID, nullable = false)
