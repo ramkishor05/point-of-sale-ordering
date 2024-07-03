@@ -2,8 +2,8 @@ package com.brijframework.ordering.entities;
 
 import static com.brijframework.ordering.contants.Constants.ACTIVE;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
+import jakarta.persistence.Column;
+import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public abstract class EOCustObject extends EOEntityObject {

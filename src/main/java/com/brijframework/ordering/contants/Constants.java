@@ -1,6 +1,8 @@
 package com.brijframework.ordering.contants;
 
 public class Constants {
+    public static final String AUTHORIZATION = "Authorization";
+
 	public static final String USER_APP_ID = "userId";
 	public static final String CUST_APP_ID = "custAppId";
 	public static final String CUST_APP_ID_URI = "{custAppId}";
